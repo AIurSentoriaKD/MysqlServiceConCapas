@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ListarAutor">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarAutorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarAutorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarAutor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busqueda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarAutorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarAutorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarAutor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codAutor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellidos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nacionalidad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarAutorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AgregarAutorResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActualizarAutor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codAutor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellidos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nacionalidad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarAutorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarAutorResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarAutor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codautor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarAutorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EliminarAutorResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarLibro">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarLibroResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarLibro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busqueda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarLibroResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarLibro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codLibro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="titulo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="editorial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AgregarLibroResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarLibro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codLibro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="titulo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="editorial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarLibroResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarLibro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codlibro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EliminarLibroResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarPrestamo">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarPrestamoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarPrestamoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPrestamo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busqueda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPrestamoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPrestamoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarPrestamo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codAutor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codLibro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fechaPrestamo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarPrestamoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AgregarPrestamoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarPrestamo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codAutor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codLibro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fechaPrestamo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarPrestamoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EliminarPrestamoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListarAutorSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarAutor" />
+  </wsdl:message>
+  <wsdl:message name="ListarAutorSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarAutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAutorSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarAutor" />
+  </wsdl:message>
+  <wsdl:message name="BuscarAutorSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarAutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarAutorSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarAutor" />
+  </wsdl:message>
+  <wsdl:message name="AgregarAutorSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarAutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarAutorSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarAutor" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarAutorSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarAutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarAutorSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarAutor" />
+  </wsdl:message>
+  <wsdl:message name="EliminarAutorSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarAutorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarLibro" />
+  </wsdl:message>
+  <wsdl:message name="ListarLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarLibro" />
+  </wsdl:message>
+  <wsdl:message name="BuscarLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarLibro" />
+  </wsdl:message>
+  <wsdl:message name="AgregarLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarLibro" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarLibro" />
+  </wsdl:message>
+  <wsdl:message name="EliminarLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarPrestamoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarPrestamo" />
+  </wsdl:message>
+  <wsdl:message name="ListarPrestamoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarPrestamoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPrestamoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPrestamo" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPrestamoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPrestamoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarPrestamoSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarPrestamo" />
+  </wsdl:message>
+  <wsdl:message name="AgregarPrestamoSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarPrestamoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPrestamoSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarPrestamo" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPrestamoSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarPrestamoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSClienteSoap">
+    <wsdl:operation name="ListarAutor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Listar la tabla autor</wsdl:documentation>
+      <wsdl:input message="tns:ListarAutorSoapIn" />
+      <wsdl:output message="tns:ListarAutorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAutor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Buscar en la tabla autor</wsdl:documentation>
+      <wsdl:input message="tns:BuscarAutorSoapIn" />
+      <wsdl:output message="tns:BuscarAutorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarAutor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Agregar autor</wsdl:documentation>
+      <wsdl:input message="tns:AgregarAutorSoapIn" />
+      <wsdl:output message="tns:AgregarAutorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarAutor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar autor</wsdl:documentation>
+      <wsdl:input message="tns:ActualizarAutorSoapIn" />
+      <wsdl:output message="tns:ActualizarAutorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAutor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Eliminar Autor</wsdl:documentation>
+      <wsdl:input message="tns:EliminarAutorSoapIn" />
+      <wsdl:output message="tns:EliminarAutorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarLibro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Listar la tabla libro</wsdl:documentation>
+      <wsdl:input message="tns:ListarLibroSoapIn" />
+      <wsdl:output message="tns:ListarLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarLibro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Buscar en la tabla libro</wsdl:documentation>
+      <wsdl:input message="tns:BuscarLibroSoapIn" />
+      <wsdl:output message="tns:BuscarLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarLibro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Agregar Libro</wsdl:documentation>
+      <wsdl:input message="tns:AgregarLibroSoapIn" />
+      <wsdl:output message="tns:AgregarLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLibro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar Libro</wsdl:documentation>
+      <wsdl:input message="tns:ActualizarLibroSoapIn" />
+      <wsdl:output message="tns:ActualizarLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarLibro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Eliminar Libro</wsdl:documentation>
+      <wsdl:input message="tns:EliminarLibroSoapIn" />
+      <wsdl:output message="tns:EliminarLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPrestamo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Listar la tabla prestamo</wsdl:documentation>
+      <wsdl:input message="tns:ListarPrestamoSoapIn" />
+      <wsdl:output message="tns:ListarPrestamoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPrestamo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Buscar en la tabla prestamo</wsdl:documentation>
+      <wsdl:input message="tns:BuscarPrestamoSoapIn" />
+      <wsdl:output message="tns:BuscarPrestamoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPrestamo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Agregar Prestamo</wsdl:documentation>
+      <wsdl:input message="tns:AgregarPrestamoSoapIn" />
+      <wsdl:output message="tns:AgregarPrestamoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPrestamo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Eliminar Prestamo</wsdl:documentation>
+      <wsdl:input message="tns:EliminarPrestamoSoapIn" />
+      <wsdl:output message="tns:EliminarPrestamoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSClienteSoap" type="tns:WSClienteSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarAutor">
+      <soap:operation soapAction="http://tempuri.org/ListarAutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAutor">
+      <soap:operation soapAction="http://tempuri.org/BuscarAutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarAutor">
+      <soap:operation soapAction="http://tempuri.org/AgregarAutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarAutor">
+      <soap:operation soapAction="http://tempuri.org/ActualizarAutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAutor">
+      <soap:operation soapAction="http://tempuri.org/EliminarAutor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarLibro">
+      <soap:operation soapAction="http://tempuri.org/ListarLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarLibro">
+      <soap:operation soapAction="http://tempuri.org/BuscarLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarLibro">
+      <soap:operation soapAction="http://tempuri.org/AgregarLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLibro">
+      <soap:operation soapAction="http://tempuri.org/ActualizarLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarLibro">
+      <soap:operation soapAction="http://tempuri.org/EliminarLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPrestamo">
+      <soap:operation soapAction="http://tempuri.org/ListarPrestamo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPrestamo">
+      <soap:operation soapAction="http://tempuri.org/BuscarPrestamo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPrestamo">
+      <soap:operation soapAction="http://tempuri.org/AgregarPrestamo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPrestamo">
+      <soap:operation soapAction="http://tempuri.org/EliminarPrestamo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSClienteSoap12" type="tns:WSClienteSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarAutor">
+      <soap12:operation soapAction="http://tempuri.org/ListarAutor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAutor">
+      <soap12:operation soapAction="http://tempuri.org/BuscarAutor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarAutor">
+      <soap12:operation soapAction="http://tempuri.org/AgregarAutor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarAutor">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarAutor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAutor">
+      <soap12:operation soapAction="http://tempuri.org/EliminarAutor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarLibro">
+      <soap12:operation soapAction="http://tempuri.org/ListarLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarLibro">
+      <soap12:operation soapAction="http://tempuri.org/BuscarLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarLibro">
+      <soap12:operation soapAction="http://tempuri.org/AgregarLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLibro">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarLibro">
+      <soap12:operation soapAction="http://tempuri.org/EliminarLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPrestamo">
+      <soap12:operation soapAction="http://tempuri.org/ListarPrestamo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPrestamo">
+      <soap12:operation soapAction="http://tempuri.org/BuscarPrestamo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPrestamo">
+      <soap12:operation soapAction="http://tempuri.org/AgregarPrestamo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPrestamo">
+      <soap12:operation soapAction="http://tempuri.org/EliminarPrestamo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSCliente">
+    <wsdl:port name="WSClienteSoap" binding="tns:WSClienteSoap">
+      <soap:address location="https://localhost:44371/WSCliente.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSClienteSoap12" binding="tns:WSClienteSoap12">
+      <soap12:address location="https://localhost:44371/WSCliente.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

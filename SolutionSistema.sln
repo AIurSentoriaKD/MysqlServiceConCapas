@@ -16,10 +16,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaServicios", "CapaServicios\CapaServicios.csproj", "{CF5BCF68-CE46-4832-A55B-6E398B1E2586}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "WebClient\WebClient.csproj", "{0ACF2C95-0536-4148-BEA6-241DACFA5769}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF5BCF68-CE46-4832-A55B-6E398B1E2586} = {CF5BCF68-CE46-4832-A55B-6E398B1E2586}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{3871129F-294B-4DBF-8DFC-F7E9CCE9BE72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormClient", "WindowsFormClient\WindowsFormClient.csproj", "{B655A32B-D094-4CE4-8DB4-9AA8D7048B27}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF5BCF68-CE46-4832-A55B-6E398B1E2586} = {CF5BCF68-CE46-4832-A55B-6E398B1E2586}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
